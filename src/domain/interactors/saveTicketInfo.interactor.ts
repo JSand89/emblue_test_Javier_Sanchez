@@ -10,3 +10,5 @@ async (info:SensorInput): Promise<TicketInfo> =>{
 
     return ticket;
 }
+
+export default saveTicketInfo;
