@@ -59,11 +59,11 @@ export default class SensorMongo implements SensorRepository {
         "east":this.distanceToCity(location,ticketParameters.citys.east),
         "west":this.distanceToCity(location,ticketParameters.citys.west)}
 
-        if(distanceToCity.nort > distanceToCity.east && distanceToCity.nort > distanceToCity.south && distanceToCity.nort > distanceToCity.west){
+        if(distanceToCity.nort < distanceToCity.east && distanceToCity.nort < distanceToCity.south && distanceToCity.nort < distanceToCity.west){
             return {city:'nort',distance:distanceToCity.nort};
-        } else if (distanceToCity.east > distanceToCity.south && distanceToCity.east > distanceToCity.west){
+        } else if (distanceToCity.east < distanceToCity.south && distanceToCity.east < distanceToCity.west){
             return {city:"east",distance:distanceToCity.east};
-        } else if(distanceToCity.south > distanceToCity.west){
+        } else if(distanceToCity.south < distanceToCity.west){
             return {city:"south",distance:distanceToCity.south};
         }else return {city:"west", distance:distanceToCity.west}
     }
