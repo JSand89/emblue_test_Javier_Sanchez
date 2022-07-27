@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import sensorInputController from './infrastucture/controllers/sensorInputHttp.controller';
 import dotEnv from 'dotenv';
+import sensorValidatorInput from './infrastucture/middleware/sensorInfo.middleware';
 
 dotEnv.config();
 const PORT = process.env.PORT ||  8080;
@@ -13,8 +14,9 @@ app.use(bodyParser.json());
 
 
 //routes
-app.post('/sensorinput',sensorInputController);
-//app.get('/multas/levantarmulta/:matricula', SensorInputController);//add get ticket controller
+app.post('/sensorinput',sensorValidatorInput,sensorInputController);
+
+//app.get('/multas/levantarmulta/:matricula', TicketController);//add get ticket controller
 app.listen(PORT, () => {
   console.log(`server started at http://localhost:${PORT}`);
 });
