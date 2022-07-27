@@ -3,7 +3,8 @@ import { Request, Response, NextFunction } from "express"
 
 const sensorValidatorInput = (request:Request,response:Response,next:NextFunction) =>{
     const {body} = request;
-    if(typeof body.registration === "string" &&
+    const {query} = request;
+    if(typeof query.matricula == "string" &&
      typeof body.localization[0]=='number' &&
      typeof body.localization[1]=='number' &&
      typeof body.heigh=='number' && 

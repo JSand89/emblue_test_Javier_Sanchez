@@ -5,7 +5,7 @@ import SensorRepository from "../domain/repositories/sensor.repository";
 import ticketParameters from "./ticketParameters";
 
 
-export default class SensorMongo implements SensorRepository {
+export default class SensorInformation implements SensorRepository {
     public async postTicket(info: SensorInput): Promise<TicketInfo> {
        if ( info.velocity > ticketParameters.maxVelocity || info.heigh > ticketParameters.maxHeight){
          const ticket =  this.insertSensorInformation(info);
@@ -21,10 +21,8 @@ export default class SensorMongo implements SensorRepository {
         const client = new MongoClient(`mongodb+srv://developertest:${process.env.PASSWORDDB}@cluster0.ty5um.mongodb.net/?retryWrites=true&w=majority`);
         try{
             const database = client.db("emblue_test");
-            const tickerInfo = database.collection<SensorInput>("Sensor-input");
+            const tickerInfo = database.collection<TicketInfo>("Sensor-input");
             const {distance,city}= this.cityTicket(info.localization);
-            const result = await tickerInfo.insertOne(info);
-            console.log(`information inserted with the id: ${result.insertedId}`);
             const ticket:TicketInfo = {
                 registration:info.registration,
                 info:{
@@ -33,7 +31,9 @@ export default class SensorMongo implements SensorRepository {
                     cityAssingned:city,
                     pay:false
                 }
-            } 
+            }
+            const result = await tickerInfo.insertOne(ticket);           
+            console.log(`information inserted with the id: ${result.insertedId}`); 
             return ticket;
         }catch(error){
             console.error(error)

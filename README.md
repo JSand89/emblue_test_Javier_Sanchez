@@ -17,8 +17,7 @@ usar los siguientes comandos para iniciar a usar el proyecto
 
 Para probar enviar por postman un JSON en el body con el siguiente formato:
 
-{"registration":"testTag5",
-    "localization":[0,100],
+{"localization":[0,100],
     "heigh":60,
     "velocity":150,
     "city":"noRegistra",
@@ -26,4 +25,4 @@ Para probar enviar por postman un JSON en el body con el siguiente formato:
     }
 Usando un metodo post a la siguiente url
 
-##### localhost:8080/sensorinput
+##### localhost:8080/multas/levantarmulta?matricula=hlk125
