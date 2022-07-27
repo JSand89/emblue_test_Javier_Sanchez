@@ -24,3 +24,6 @@ Para probar enviar por postman un JSON en el body con el siguiente formato:
     "city":"noRegistra",
     "image":"body.image"
     }
+Usando un metodo post a la siguiente url
+
+##### localhost:8080/sensorinput
