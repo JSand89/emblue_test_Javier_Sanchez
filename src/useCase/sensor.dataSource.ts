@@ -21,7 +21,7 @@ export default class SensorInformation implements SensorRepository {
         const client = new MongoClient(`mongodb+srv://developertest:${process.env.PASSWORDDB}@cluster0.ty5um.mongodb.net/?retryWrites=true&w=majority`);
         try{
             const database = client.db("emblue_test");
-            const tickerInfo = database.collection<TicketInfo>("Sensor-input");
+            const tickerInfo = database.collection<TicketInfo>("Tickets");
             const {distance,city}= this.cityTicket(info.localization);
             const ticket:TicketInfo = {
                 registration:info.registration,

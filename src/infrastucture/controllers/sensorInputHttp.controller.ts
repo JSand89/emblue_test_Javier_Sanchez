@@ -6,7 +6,6 @@ import interactors from "../../domain/interactors/index";
 const sensorInputController = async (request:Request,response:Response)=>{
     const {body} = request;
     const {query} = request;
-    console.log( typeof query.matricula)
     if(typeof query.matricula == 'string'){
         const info:SensorInput = 
         {registration:query.matricula,
@@ -17,7 +16,10 @@ const sensorInputController = async (request:Request,response:Response)=>{
         image:body.image
         }
         const ticket:TicketInfo = await interactors.SaveTicketInfo(info);
+        response.statusCode = 200;
         response.json(ticket);
+    }else{
+        response.statusCode = 404;
     }
 
 }

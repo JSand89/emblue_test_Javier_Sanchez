@@ -11,7 +11,6 @@ const sensorValidatorInput = (request:Request,response:Response,next:NextFunctio
      typeof body.velocity=='number' &&
      typeof body.city === "string" &&
      typeof body.image === "string"){
-        console.log("inside middle")
         next()
     } else {
         response.status(404).json({msg:'error in type of data sended',code:404})

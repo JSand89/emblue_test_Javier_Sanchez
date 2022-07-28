@@ -6,13 +6,16 @@ Como líder de proyecto seleccionado por Bulma, tu tarea es desarrollar un prime
 
 ## Modo de Uso
 
-Primero clonar el repositorio 
-El contenido del archivo .env es PASSWORDDB=gxeI89xV0N8Cg6r9 (Cuando el proyecto sea publico quitar esto y dejar que el usuario use su propia BD)
+Primero clonar el repositorio
+El contenido del archivo .env es PASSWORDDB=gxeI89xV0N8Cg6r9 (Cuando el proyecto sea público quitar esto y dejar que el usuario use su propia BD)
 usar los siguientes comandos para iniciar a usar el proyecto
+
 ##### npm i
 ##### npm run build
 ##### npm run dev
 
+## Levantar una Multa
+Para simular el sensor se envía la siguiente información
 ### Formato del Body 
 
 Para probar enviar por postman un JSON en el body con el siguiente formato:
@@ -23,6 +26,12 @@ Para probar enviar por postman un JSON en el body con el siguiente formato:
     "city":"noRegistra",
     "image":"body.image"
     }
-Usando un metodo post a la siguiente url
+Usando un método post a la siguiente url
 
 ##### localhost:8080/multas/levantarmulta?matricula=hlk125
+
+## consultar estado de multas
+
+hacer una petición get
+
+##### localhost:8080/multas?matricula=hlk125
