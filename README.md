@@ -7,7 +7,7 @@ Como líder de proyecto seleccionado por Bulma, tu tarea es desarrollar un prime
 ## Modo de Uso
 
 Primero clonar el repositorio
-El contenido del archivo .env es PASSWORDDB=gxeI89xV0N8Cg6r9 (Cuando el proyecto sea público quitar esto y dejar que el usuario use su propia BD)
+El contenido del archivo .env es PASSWORDDB
 usar los siguientes comandos para iniciar a usar el proyecto
 
 ##### npm i
